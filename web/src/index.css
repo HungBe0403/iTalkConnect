@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-dark-700 m-0 p-0;
+  }
+  
+  html, body {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-gray-100 dark:bg-dark-800 text-dark-800 dark:text-white font-sans antialiased transition-colors duration-300;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-dark-500 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-dark-400;
+  }
+
+  input, textarea, button, select {
+    font-family: inherit;
+  }
+
+  /* Focus styling */
+  :focus-visible {
+    @apply outline-primary-500 outline-2 outline-offset-2;
+  }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 text-gray-900 dark:text-white
+    focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200
+    focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-600 hover:bg-secondary-700 text-white focus:ring-secondary-500;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent border border-gray-300 dark:border-dark-600 hover:bg-gray-100 dark:hover:bg-dark-700 text-gray-800 dark:text-white focus:ring-gray-500;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent hover:bg-gray-100 dark:hover:bg-dark-700 text-gray-800 dark:text-white focus:ring-gray-500;
+  }
+
+  .btn-danger {
+    @apply btn bg-error-600 hover:bg-error-700 text-white focus:ring-error-500;
+  }
+
+  .chat-bubble {
+    @apply relative max-w-[80%] rounded-2xl p-3 mb-2;
+  }
+
+  .chat-bubble-sent {
+    @apply chat-bubble bg-primary-500 text-white ml-auto;
+  }
+
+  .chat-bubble-received {
+    @apply chat-bubble bg-gray-200 dark:bg-dark-600 text-gray-800 dark:text-white;
+  }
+
+  .animate-in {
+    animation: animate-in 0.2s ease-out;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
