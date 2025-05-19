@@ -9,7 +9,7 @@ const api = axios.create({
   },
 });
 
-// Add auth token to requests
+// Thêm token vào header cho mỗi request
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -21,7 +21,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Handle token expiration
+// Xử lý token hết hạn
 api.interceptors.response.use(
   (response) => response,
   (error) => {
